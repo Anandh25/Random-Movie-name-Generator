@@ -1,41 +1,46 @@
+/* ===== Base = Mobile First ===== */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   background-color: #fab22e;
 }
 
+/* Wrapper for mobile */
 .wrapper {
   top: 50%;
   left: 50%;
-  width: 150vmin;
-  padding: 50px 40px;
+  width: 90%; /* fit nicely on mobile */
+  max-width: 400px; /* prevent it from being too wide on big phones */
+  padding: 20px 15px;
   background-color: #15161a;
   position: absolute;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  box-shadow: 20px 20px 40px rgba(97, 63, 0, 0.4);
+  box-shadow: 10px 10px 20px rgba(97, 63, 0, 0.4);
+  text-align: center;
 }
 
 span {
   display: block;
-  text-align: center;
-  font-size: 100px;
+  font-size: 60px; /* smaller icon for mobile */
+  margin-bottom: 15px;
 }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   font-weight: 400;
-  text-align: center;
-  margin: 30px 0;
-  line-height: 35px;
-  word-wrap: break-word;
+  margin: 20px 0;
+  line-height: 28px;
   opacity: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  letter-spacing: 1px;
+  word-wrap: break-word;
 }
 
 .fade {
@@ -44,15 +49,62 @@ p {
 }
 
 button {
-  display: block;
   background-color: #fab22e;
   border: none;
   outline: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   color: #171721;
   font-weight: 600;
   margin: 0 auto;
   border-radius: 5px;
-  padding: 15px 20px;
+  padding: 12px 20px;
+  display: block;
+}
+
+/* ===== Tablet (≥550px) ===== */
+@media screen and (min-width: 550px) {
+  .wrapper {
+    width: 80vmin;
+    padding: 30px 25px;
+  }
+
+  span {
+    font-size: 80px;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px 25px;
+  }
+}
+
+/* ===== Desktop (≥950px) ===== */
+@media screen and (min-width: 950px) {
+  .wrapper {
+    width: 100vmin;
+    padding: 35px 35px;
+    box-shadow: 20px 20px 40px rgba(97, 63, 0, 0.4);
+  }
+
+  span {
+    font-size: 100px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 35px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 15px 30px;
+  }
 }

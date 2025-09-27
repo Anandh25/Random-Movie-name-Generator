@@ -1,16 +1,18 @@
-const jokeContainer = document.getElementById("joke");
+const movieContainer = document.getElementById("movieName");
 const btn = document.getElementById("btn");
 
 const url =
-  "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Dark,Pun,Spooky,Christmas?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+  "https://raw.githubusercontent.com/Anandh25/Movie_Lists_Json/refs/heads/main/movies.json";
 
-let getJoke = () => {
-  jokeContainer.classList.remove("fade");
+let getMovie = () => {
+  movieContainer.classList.remove("fade");
   fetch(url)
     .then((data) => data.json())
     .then((item) => {
-      jokeContainer.textContent = `${item.joke}`;
-      jokeContainer.classList.add("fade");
+      const randomIndex = Math.floor(Math.random() * item.length);
+      movieContainer.textContent = item[randomIndex];
+      movieContainer.classList.add("fade");
     });
 };
-btn.addEventListener("click", getJoke);
+btn.addEventListener("click", getMovie);
+getMovie();
